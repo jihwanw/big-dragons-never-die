@@ -72,11 +72,12 @@ This repository contains comprehensive research documenting a fundamental shift 
 
 ```
 big-dragons-never-die/
-├── README.md                    # This comprehensive guide
+├── README.md                    # English comprehensive guide
+├── README_KR.md                 # Korean comprehensive guide (한글 가이드)
 ├── paper/                       # Academic paper and LaTeX source
-│   ├── size_premium_reversal_v3.tex
-│   ├── references.bib
-│   └── compiled_paper.pdf
+│   ├── manuscript.tex           # Main paper file
+│   ├── references.bib           # Bibliography
+│   └── figures/                 # Paper figures
 ├── data/                        # Research datasets and results
 │   ├── enhanced_results_summary.csv
 │   ├── factor_loadings.csv
@@ -123,10 +124,10 @@ pip install pandas numpy matplotlib seaborn scipy statsmodels
 4. **Compile Paper**:
    ```bash
    cd paper/
-   pdflatex size_premium_reversal_v3.tex
-   bibtex size_premium_reversal_v3
-   pdflatex size_premium_reversal_v3.tex
-   pdflatex size_premium_reversal_v3.tex
+   pdflatex manuscript.tex
+   bibtex manuscript
+   pdflatex manuscript.tex
+   pdflatex manuscript.tex
    ```
 
 ## 📈 Key Visualizations
