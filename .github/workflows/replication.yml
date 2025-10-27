@@ -1,0 +1,73 @@
+name: Replication Test
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test-replication:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.8, 3.9, '3.10']
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v3
+      with:
+        python-version: ${{ matrix.python-version }}
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pandas numpy matplotlib seaborn scipy statsmodels
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    
+    - name: Test factor analysis
+      run: |
+        cd code
+        python mega_cap_factor_analysis.py
+    
+    - name: Test enhanced analysis
+      run: |
+        cd code
+        python enhanced_mega_cap_analysis.py
+    
+    - name: Test figure generation
+      run: |
+        cd code
+        python create_paper_figures.py
+    
+    - name: Validate results
+      run: |
+        cd code
+        python factor_comparison_analysis.py
+
+  latex-compilation:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up LaTeX
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y texlive-latex-base texlive-latex-extra texlive-fonts-recommended
+    
+    - name: Compile LaTeX paper
+      run: |
+        cd paper
+        pdflatex size_premium_reversal_v3.tex
+        bibtex size_premium_reversal_v3
+        pdflatex size_premium_reversal_v3.tex
+        pdflatex size_premium_reversal_v3.tex
+    
+    - name: Upload PDF artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: compiled-paper
+        path: paper/size_premium_reversal_v3.pdf
