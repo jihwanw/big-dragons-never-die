@@ -6,7 +6,7 @@
 
 ## 🎯 연구 개요
 
-본 연구는 2020-2025년 기간 동안 메가캡 주식이 소형주를 연간 **24.65%**라는 전례 없는 수익률로 체계적으로 앞서는 현상을 종합적으로 문서화한 연구입니다. 이 현상을 "대마불사"라고 명명하며, 수십 년간 확립된 금융 이론의 사이즈 프리미엄에 도전하는 내용입니다.
+본 연구는 2020-2025년 기간 동안 S&P 500 상위 200개 메가캡 기업들 내에서도 사이즈 효과가 지속되어, 초대형 기업들이 상대적으로 작은 메가캡 기업들을 연간 **7-9%** 체계적으로 앞서는 현상을 문서화한 연구입니다. 이 현상을 "대마불사"라고 명명하며, 메가캡 유니버스 내에서도 사이즈 프리미엄이 역전되지 않고 오히려 강화되는 현상을 보여줍니다.
 
 ## 🔍 연구의 중요성
 
@@ -24,11 +24,174 @@
 
 ## 📊 데이터 및 방법론
 
-### 데이터 소스
-- **주요 데이터셋**: S&P 500 구성종목 (2020-2025)
-- **표본 크기**: 시가총액 상위 200개 기업
-- **빈도**: 월별 포트폴리오 리밸런싱을 통한 일별 수익률
-- **위험 팩터**: 커스텀 SMB 팩터들 (SMB_50, SMB_30, SMB_Q5Q1) 및 전통적 Fama-French 팩터
+### 데이터 소스 및 확보 방법
+
+#### 주요 데이터 소스
+- **주식 데이터**: WRDS CRSP (Center for Research in Security Prices) 데이터베이스
+- **시장 데이터**: S&P 500 구성종목 데이터 (역사적 변경사항 포함)
+- **무위험 수익률**: FRED (Federal Reserve Economic Data)의 3개월 국채 수익률
+- **표본 기간**: 2020년 10월 ~ 2024년 12월 (1,053 거래일)
+
+#### 데이터 확보 과정
+```python
+# WRDS 연결 및 데이터 추출
+import wrds
+db = wrds.Connection(wrds_username='사용자명')
+
+# 시가총액 데이터와 함께 S&P 500 구성종목 조회
+query = """
+SELECT date, permno, ret, prc, shrout, 
+       ABS(prc) * shrout as market_cap
+FROM crsp.dsf 
+WHERE date BETWEEN '2020-10-01' AND '2024-12-31'
+AND permno IN (SELECT DISTINCT permno FROM crsp.dsp500list)
+ORDER BY date, market_cap DESC
+"""
+raw_data = db.raw_sql(query)
+```
+
+#### 표본 구성
+- **유니버스**: S&P 500 구성종목만 포함 (소형주 완전 제외)
+- **표본 크기**: 매월 시가총액 상위 200개 기업
+- **리밸런싱**: 월말 시가총액 기준 월별 포트폴리오 재구성
+- **생존편향**: 지속적 대형주에 초점 (생존편향 조정 불필요)
+- **데이터 품질**: 최소 80% 데이터 가용성 요구; 최대 5거래일 전진보간
+
+### 상세 방법론
+
+#### 1. 포트폴리오 구성 과정
+매월 모든 S&P 500 구성종목을 시가총액으로 순위를 매기고 상위 200개를 선택:
+
+```python
+def form_portfolios(data, n_companies=200):
+    """메가캡 유니버스 내에서 사이즈별 포트폴리오 구성"""
+    monthly_portfolios = []
+    
+    for month in data['date'].dt.to_period('M').unique():
+        month_data = data[data['date'].dt.to_period('M') == month]
+        
+        # 시가총액 상위 200개 선택
+        top_200 = month_data.nlargest(n_companies, 'market_cap')
+        
+        # 5분위 포트폴리오 생성 (Q1=상위200개 중 최소, Q5=최대)
+        top_200['size_quintile'] = pd.qcut(top_200['market_cap'], 
+                                          q=5, labels=['Q1','Q2','Q3','Q4','Q5'])
+        monthly_portfolios.append(top_200)
+    
+    return pd.concat(monthly_portfolios)
+```
+
+#### 2. 팩터 구성
+강건성 검증을 위해 3가지 다른 SMB (Small Minus Big) 팩터를 구성:
+
+**SMB_50 팩터 (상위 50개 vs 하위 50개):**
+```
+SMB_50 = (1/50) × Σ(R_i,t for i in 순위 151-200) - (1/50) × Σ(R_i,t for i in 순위 1-50)
+```
+
+**SMB_30 팩터 (상위 30개 vs 하위 30개):**
+```
+SMB_30 = (1/30) × Σ(R_i,t for i in 순위 171-200) - (1/30) × Σ(R_i,t for i in 순위 1-30)
+```
+
+**SMB_Q5Q1 팩터 (5분위 vs 1분위):**
+```
+SMB_Q5Q1 = (1/40) × Σ(R_i,t for i in Q5) - (1/40) × Σ(R_i,t for i in Q1)
+```
+
+여기서 R_i,t는 시점 t에서 주식 i의 초과수익률(주식수익률 - 무위험수익률)을 나타냅니다.
+
+#### 3. Fama-MacBeth 2단계 회귀분석
+
+**1단계 - 시계열 회귀분석 (팩터 로딩 추정):**
+각 주식 i에 대해 전체 시계열을 사용하여 팩터 민감도(베타) 추정:
+
+```
+R_i,t - RF_t = α_i + β_i,MKT(MKT_t - RF_t) + β_i,SMB(SMB_t) + β_i,HML(HML_t) + ε_i,t
+```
+
+여기서:
+- R_i,t = 시점 t에서 주식 i의 수익률
+- RF_t = 시점 t에서 무위험 수익률
+- MKT_t = 시점 t에서 시장 수익률
+- SMB_t = 시점 t에서 사이즈 팩터 수익률
+- HML_t = 시점 t에서 가치 팩터 수익률
+- β_i,j = 팩터 j에 대한 주식 i의 팩터 로딩
+
+**2단계 - 횡단면 회귀분석 (위험 프리미엄 추정):**
+각 시점 t에서 초과수익률을 추정된 베타에 회귀:
+
+```
+R_i,t - RF_t = λ_0,t + λ_MKT,t × β̂_i,MKT + λ_SMB,t × β̂_i,SMB + λ_HML,t × β̂_i,HML + η_i,t
+```
+
+여기서 λ_j,t는 시점 t에서 팩터 j의 위험 프리미엄을 나타냅니다.
+
+**최종 위험 프리미엄 추정:**
+횡단면 위험 프리미엄의 시계열 평균:
+
+```
+λ̄_j = (1/T) × Σ(λ_j,t) for t = 1 to T
+```
+
+이분산성과 자기상관을 고려한 Newey-West HAC 표준오차:
+
+```
+SE(λ̄_j) = √[(1/T) × Ω_j]
+```
+
+여기서 Ω_j는 Newey-West 공분산 행렬 추정량입니다.
+
+#### 4. 통계적 검정 프레임워크
+
+**t-통계량 계산:**
+```
+t_j = λ̄_j / SE(λ̄_j)
+```
+
+**유의수준:**
+- *** p < 0.01 (99% 신뢰도)
+- ** p < 0.05 (95% 신뢰도)
+- * p < 0.10 (90% 신뢰도)
+
+#### 5. 강건성 검증
+
+**이동창 분석:**
+```python
+def rolling_analysis(data, window=252):
+    """이동창 팩터 프리미엄 계산"""
+    results = []
+    for i in range(window, len(data)):
+        window_data = data.iloc[i-window:i]
+        premium = fama_macbeth_regression(window_data)
+        results.append(premium)
+    return results
+```
+
+**부트스트랩 신뢰구간:**
+```python
+def bootstrap_ci(data, n_bootstrap=1000, alpha=0.05):
+    """부트스트랩 신뢰구간 생성"""
+    bootstrap_results = []
+    for _ in range(n_bootstrap):
+        sample = data.sample(frac=1, replace=True)
+        premium = fama_macbeth_regression(sample)
+        bootstrap_results.append(premium)
+    
+    lower = np.percentile(bootstrap_results, 100 * alpha/2)
+    upper = np.percentile(bootstrap_results, 100 * (1 - alpha/2))
+    return lower, upper
+```
+
+### 데이터 처리 파이프라인
+1. **원시 데이터 추출**: WRDS CRSP 데이터베이스에서 S&P 500 구성종목 조회
+2. **데이터 정제**: 결측값, 기업행위, 이상값 처리
+3. **표본 선택**: 시가총액 기준 월별 상위 200개 기업 선택
+4. **수익률 계산**: 무위험 수익률 대비 일별 초과수익률 계산
+5. **포트폴리오 구성**: 메가캡 유니버스 내에서 사이즈별 포트폴리오 생성
+6. **팩터 구성**: 메가캡 유니버스만을 사용한 커스텀 SMB 팩터 구축
+7. **통계 분석**: Fama-MacBeth 2단계 회귀 방법론 실행
+8. **강건성 검증**: 다중 명세와 시간 구간에서 결과 검증
 
 ### 연구 설계
 1. **팩터 구성**: 
@@ -51,13 +214,13 @@
 ## 🏆 주요 발견사항
 
 ### 핵심 결과
-- **메가캡 초과수익**: 소형주 대비 연간 24.65% 초과수익률
+- **메가캡 내 사이즈 효과**: 초대형 메가캡이 상대적 소형 메가캡 대비 연간 7-9% 초과수익률
 - **통계적 유의성**: 모든 명세에서 t-통계량 > 3.0
 - **지속성**: 60개월 연구 기간 전반에 걸친 일관된 초과수익
 - **팩터 로딩**: 메가캡 포트폴리오의 음의 SMB_mega 로딩 (-0.847)
 
 ### 학술적 통찰
-1. **사이즈 프리미엄 역전**: 전통적인 소형주 우위 완전 소멸
+1. **메가캡 내 사이즈 효과**: 메가캡 유니버스 내에서도 사이즈 프리미엄 지속
 2. **시장 구조 진화**: 메가캡 지배로의 근본적 변화
 3. **팩터 모델 향상**: 표본 특화 팩터가 우수한 설명력 제공
 4. **횡단면 패턴**: 사이즈와 수익률 간 체계적 관계 역전
@@ -138,15 +301,10 @@ pip install pandas numpy matplotlib seaborn scipy statsmodels
 
 ## 🎓 학술적 영향
 
-### 목표 저널
-- **1순위**: Finance Research Letters (FRL)
-- **2순위**: Journal of Financial Economics, Review of Financial Studies
-- **대안**: PLoS One, Financial Management
-
 ### 인용 형식
 ```
-[저자명]. "대마불사: 메가캡 지배와 사이즈 프리미엄 역전의 증거 (2020-2025)." 
-Finance Research Letters, [연도]. DOI: [할당 예정]
+[저자명]. "대마불사: 메가캡 유니버스 내 사이즈 프리미엄 지속성의 증거 (2020-2025)." 
+[저널명], [연도]. DOI: [할당 예정]
 ```
 
 ## 🔧 기술적 참고사항
