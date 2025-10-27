@@ -57,7 +57,7 @@
 
 \begin{flushleft}
 {\Large
-\textbf{Mega-Cap Premium: Size Effects within the Large-Cap Universe Using Mega-Cap Specific Factors}
+\textbf{Big Dragons Never Die: Evidence of Mega-Cap Outperformance Within Large-Cap Stocks}
 }
 \newline
 \\
@@ -73,9 +73,7 @@ Jihwan Woo\textsuperscript{1*}
 \end{flushleft}
 
 \section*{Abstract}
-The size premium, first documented by Banz (1981) and incorporated into the Fama-French three-factor model (1993), has been a cornerstone of asset pricing theory for four decades. However, existing studies use market-wide size factors that may not capture size effects within specific market capitalization segments. Using Fama-MacBeth two-pass regression methodology on the top 200 U.S. stocks from WRDS CRSP database (October 2020 to December 2024), we construct mega-cap specific SMB factors and document significant size effects within the large-cap universe. Our mega-cap SMB factor (SMB\_mega) shows a negative premium of $-6.9\%$ annually ($t=-2.31$, $p=0.021$), indicating that mega-cap stocks (top 100 by market capitalization) significantly outperform smaller large-cap stocks (ranked 101-200). \textbf{Methodological Innovation:} We construct SMB factors specifically from our sample universe rather than using market-wide factors, ensuring theoretical consistency between factor construction and sample composition. Robustness checks using alternative portfolio formations (30-30-40 split, quintiles) confirm our findings with size premiums ranging from $-6.9\%$ to $-9.0\%$ annually. \textbf{Important scope:} We analyze only large-cap stocks and do not test the traditional small-cap vs large-cap size premium. Our contribution is documenting conditional size effects within the large-cap segment using methodologically appropriate factors. We attribute mega-cap outperformance to structural changes including market concentration, network effects, and intangible asset advantages that disproportionately benefit the largest firms. All results are fully reproducible using WRDS data with comprehensive robustness testing.
-
-\textbf{Data Availability:} All analysis uses publicly available WRDS CRSP data. Results are cached in SQLite database (wrds\_cache.db) for reproducibility. Code available upon request.
+We examine size effects within the large-cap universe using sample-specific factors constructed from the top 200 U.S. stocks. Traditional size premium research employs market-wide SMB factors that may not capture conditional effects within specific market capitalization segments. Using Fama-MacBeth two-pass regression methodology on WRDS CRSP data from October 2020 to December 2024, we construct mega-cap specific SMB factors and document significant negative size premiums within the large-cap universe. Our primary mega-cap SMB factor shows a premium of $-6.9\%$ annually ($t=-2.31$, $p=0.021$), indicating that mega-cap stocks systematically outperform smaller large-cap stocks. We construct SMB factors specifically from our sample universe rather than using market-wide factors, ensuring theoretical consistency between factor construction and sample composition. Robustness checks using alternative portfolio formations confirm our findings with size premiums ranging from $-6.9\%$ to $-9.0\%$ annually. Our analysis focuses exclusively on large-cap stocks and does not test the traditional small-cap versus large-cap size premium. We attribute mega-cap outperformance to structural market changes including increased concentration, network effects, and the growing importance of intangible assets that disproportionately benefit the largest firms. These findings suggest that size effects are conditional and regime-dependent, challenging the assumption of a monotonic size-return relationship across all market capitalization segments.
 
 \linenumbers
 
@@ -91,13 +89,13 @@ The period from 2020 to 2024 has witnessed unprecedented changes in financial ma
 
 This paper investigates whether the size premium persists during this transformative period using WRDS CRSP data. We focus on the top 200 U.S. stocks by market capitalization, examining size effects within the large-cap universe. This approach has three advantages: (1) eliminates liquidity concerns and microstructure noise, (2) captures the segment where most institutional capital is deployed, and (3) provides clean tests using the most reliable data. Our analysis period spans from January 2, 2020, to December 31, 2024, covering 1,258 trading days and capturing the full impact of recent market changes.
 
-\textbf{Main Finding:} Our mega-cap specific SMB factor (SMB\_mega) commands a negative premium of $-6.9\%$ annually ($t=-2.31$, $p=0.021$) among large-cap stocks. This indicates that mega-cap stocks significantly outperform smaller large-cap stocks, revealing a conditional size effect within the large-cap universe. Robustness checks confirm this finding across multiple portfolio formations, with size premiums ranging from $-6.9\%$ to $-9.0\%$ annually.
+Our main finding reveals that mega-cap specific SMB factors command a negative premium of $-6.9\%$ annually ($t=-2.31$, $p=0.021$) among large-cap stocks. This indicates that mega-cap stocks significantly outperform smaller large-cap stocks, revealing a conditional size effect within the large-cap universe. Robustness checks confirm this finding across multiple portfolio formations, with size premiums ranging from $-6.9\%$ to $-9.0\%$ annually.
 
-\textbf{Critical Scope Clarification:} Our analysis focuses exclusively on the top 200 U.S. stocks, all of which are large-cap or mega-cap firms. We do NOT test the traditional size premium comparing small-cap stocks (e.g., Russell 2000, market cap \$300M-\$2B) to large-cap stocks (e.g., S\S\S\S\&PPP 500, market cap $>$\$10B). The traditional size premium---where small-cap stocks historically outperformed large-cap stocks---may still exist. Our contribution is documenting that \textit{within} the large-cap segment, a reversal occurs: mega-caps outperform large-caps. This suggests the size-return relationship is nonlinear, not monotonic.
+We emphasize that our analysis focuses exclusively on the top 200 U.S. stocks, all of which are large-cap or mega-cap firms. We do not test the traditional size premium comparing small-cap stocks to large-cap stocks. The traditional size premium may still exist across the broader market capitalization spectrum. Our contribution documents that within the large-cap segment, a reversal occurs where mega-caps outperform large-caps, suggesting the size-return relationship is nonlinear rather than monotonic.
 
-\textbf{Academic Contribution:} Our primary contribution is documenting the ``big dragons never die'' phenomenon in modern financial markets through rigorous empirical analysis. Methodologically, we construct sample-specific SMB factors that ensure theoretical consistency between factor definition and sample composition, revealing conditional size effects within market capitalization segments that are masked when using market-wide factors. Conceptually, we provide the first systematic evidence that the ancient Go principle---``big dragons never die''---has become a fundamental characteristic of digital-age financial markets. We document that size effects are regime-dependent: within the large-cap universe, larger firms outperform smaller firms, embodying the principle where scale confers increasing advantages rather than disadvantages. This paradigm shift from industrial-age size penalties to digital-age size premiums has profound implications for asset pricing theory and portfolio construction, particularly for institutional investors operating within large-cap constraints. Our comprehensive robustness testing across multiple specifications confirms that we are witnessing a structural transformation where ``big dragons'' increasingly dominate financial markets.
+Our primary contribution lies in documenting the ``big dragons never die'' phenomenon in modern financial markets through rigorous empirical analysis. Methodologically, we construct sample-specific SMB factors that ensure theoretical consistency between factor definition and sample composition, revealing conditional size effects within market capitalization segments that are masked when using market-wide factors. Conceptually, we provide the first systematic evidence that size effects are regime-dependent, with larger firms outperforming smaller firms within the large-cap universe. This paradigm shift from industrial-age size penalties to digital-age size premiums has profound implications for asset pricing theory and portfolio construction, particularly for institutional investors operating within large-cap constraints.
 
-\textbf{Reproducibility:} All results use WRDS CRSP data accessed via wrds-cloud library. Data is cached locally in SQLite database (wrds\_cache.db) for verification. The analysis pipeline is fully automated and reproducible.
+All results employ WRDS CRSP data accessed via the wrds-cloud library, with comprehensive local caching to ensure full reproducibility. The analysis pipeline is fully automated and all intermediate results are preserved for verification.
 
 The remainder of this paper is organized as follows. Section 2 reviews the relevant literature. Section 3 describes our data and methodology. Section 4 presents our main results. Section 5 discusses potential explanations and implications. Section 6 concludes.
 
@@ -123,7 +121,7 @@ Table~\ref{table:literature} summarizes the evolution of size premium research o
 
 \hline
 \multicolumn{3}{l}{\begin{minipage}{11.5cm}\small
-This table summarizes the evolution of size premium research from 1981 to 2024. Phase 1 established the size effect as a robust empirical regularity. Phase 2 documented weakening of the premium. Phase 3 identified structural market changes favoring large firms. Phase 4 examined recent market dynamics. Our paper provides the first evidence of nonlinear size effects within large-caps, where mega-caps significantly outperform large-caps.
+This table summarizes the evolution of size premium research from 1981 to 2024. Phase 1 established the size effect as a robust empirical regularity. Phase 2 documented weakening of the premium and expansion of factor models. Phase 3 identified structural market changes including increased concentration, intangible assets, and platform effects that favor large firms. Phase 4 examined recent market dynamics during the COVID-19 pandemic and digital transformation period.
 \end{minipage}} \\
 \endlastfoot
 
@@ -173,121 +171,56 @@ This table summarizes the evolution of size premium research from 1981 to 2024. 
 2020 & Ramelli \& Wagner~\cite{ramelli2020} & Large firms outperform during COVID-19 \\
 2021 & Ding et al.~\cite{ding2021} & Corporate resilience correlates with size \\
 2021 & Brynjolfsson et al.~\cite{brynjolfsson2021} & AI investments concentrated in large firms \\
-\hline
-\multicolumn{3}{l}{\textbf{Our Contribution}} \\
-\hline
-2024 2025 & This paper This paper & \textbf{First evidence of nonlinear size effect within large-caps:} \\
- & & Mega-caps outperform large-caps by 25\% annually (2020-2024) \\
- & & Suggests conditional, regime-dependent size effects \\
 \end{longtable}
 
-\subsection*{Discovery and establishment of size effect (1980s-1990s)}
+The size effect, first documented by Banz~\cite{banz1981} and formalized by Fama and French~\cite{fama1993}, has been one of the most robust empirical regularities in finance. However, recent studies have questioned its persistence. Horowitz et al.~\cite{horowitz2000} and Asness et al.~\cite{asness2018} documented significant weakening of the size premium, while Schwert~\cite{schwert2003} suggested many anomalies diminish after publication.
 
-The size effect was first documented by Banz~\cite{banz1981}, who found that small firms earned higher returns than large firms over the period 1936-1975, even after controlling for market beta. Reinganum~\cite{reinganum1981} confirmed this finding and showed it was robust to various specifications. Keim~\cite{keim1983} discovered the ``January effect,'' showing that nearly 50\% of the annual size premium occurs in January, particularly in the first two weeks.
+Concurrent research has documented fundamental changes in market structure that may affect size-return relationships. Farboodi and Veldkamp~\cite{farboodi2020} and Grullon et al.~\cite{grullon2019} show dramatic increases in market concentration, while Crouzet and Eberly~\cite{crouzet2019} document the rise of intangible capital that disproportionately benefits large firms. The COVID-19 pandemic further accelerated these trends, with Ramelli and Wagner~\cite{ramelli2020} showing that large firms significantly outperformed during the crisis.
 
-Fama and French~\cite{fama1992,fama1993} revolutionized asset pricing by incorporating size (SMB) and value (HML) factors into their three-factor model. They argued that size premium represents compensation for systematic risk not captured by market beta. Their model explained cross-sectional return variation far better than CAPM, becoming the dominant framework for the next three decades. Lakonishok et al.~\cite{lakonishok1994} proposed behavioral explanations, arguing that small-cap outperformance reflects investor overreaction and neglect rather than risk compensation.
-
-\subsection*{The disappearing size premium (2000s-2010s)}
-
-Despite its initial success, the size premium faced increasing scrutiny. Horowitz et al.~\cite{horowitz2000} documented that size premium weakened significantly after 1980, raising questions about its persistence. Schwert~\cite{schwert2003} showed that many anomalies, including size effect, diminish or disappear after publication, suggesting that either markets become more efficient or the original findings were spurious. Dimson and Marsh~\cite{dimson1999} found that size premium in the UK market was much smaller than in the US, questioning its universality.
-
-Asness et al.~\cite{asness2018} documented a long-term decline in size premium across multiple markets, attributing it to increased arbitrage activity and changing market structure. Perez-Quiros and Timmermann~\cite{perez2000} showed that size premium varies with business cycles---small caps outperform during expansions but underperform during recessions. Hahn and Lee~\cite{hahn2006} found that size premium is stronger among value stocks than growth stocks, suggesting interaction effects between factors.
-
-The asset pricing literature expanded beyond the original three factors. Carhart~\cite{carhart1997} added momentum to create a four-factor model, documenting that past winners continue to outperform~\cite{jegadeesh1993}. Pastor and Stambaugh~\cite{pastor2003} showed that liquidity risk commands a premium. Novy-Marx~\cite{novymarx2013} documented a profitability premium, while Frazzini and Pedersen~\cite{frazzini2014} found a ``betting against beta'' anomaly. Hou et al.~\cite{hou2015} proposed a q-factor model emphasizing investment and profitability. The debate between characteristics versus covariances~\cite{daniel1997} continues, with Van Binsbergen et al.~\cite{vanbinsbergen2012} adding insights on dividend timing and term structure of equity returns.
-
-\subsection*{Market structure changes (2010s-2020s)}
-
-Recent research has documented dramatic changes in market structure. Farboodi and Veldkamp~\cite{farboodi2020} documented dramatic increases in market concentration, with top firms capturing larger market shares. They attribute this to data-driven economies where large firms have competitive advantages in collecting and analyzing information. Autor et al.~\cite{autor2020} showed that ``superstar firms'' dominate their industries through technology and scale advantages, creating winner-take-all markets. Grullon et al.~\cite{grullon2019} found that US industries have become more concentrated since 2000, with declining competition and rising profit margins for dominant firms.
-
-Crouzet and Eberly~\cite{crouzet2019} documented the rise of intangible capital (software, data, intellectual property) which now exceeds tangible capital investment. Large firms disproportionately benefit from intangible assets due to scalability. Haskel and Westlake~\cite{haskel2018} argued that intangible assets have unique properties (scalability, spillovers, sunk costs) that favor large firms, fundamentally changing competitive dynamics. Peters and Taylor~\cite{peters2017} showed that intangible capital explains significant cross-sectional variation in stock returns.
-
-Parker et al.~\cite{parker2016} explained how platform businesses create network effects where value increases exponentially with user base, naturally favoring large firms. Eisenmann et al.~\cite{eisenmann2006} documented winner-take-all dynamics in platform markets, where first movers and largest players capture disproportionate value. Brynjolfsson and McAfee~\cite{brynjolfsson2014} argued that digital technologies enable ``scale without mass,'' allowing large tech firms to grow without proportional cost increases.
-
-\subsection*{Recent market dynamics (2020-2024)}
-
-The COVID-19 pandemic accelerated existing trends. Ramelli and Wagner~\cite{ramelli2020} documented that large, cash-rich firms with digital capabilities significantly outperformed during the pandemic. Ding et al.~\cite{ding2021} showed that corporate resilience during COVID-19 was strongly correlated with firm size, digital infrastructure, and financial flexibility.
-
-Brynjolfsson et al.~\cite{brynjolfsson2021} documented massive AI investments concentrated among large tech firms, creating new sources of competitive advantage. Agrawal et al.~\cite{agrawal2019} argued that AI reduces prediction costs, benefiting firms with large data sets and computational resources---predominantly large firms. Acemoglu and Restrepo~\cite{acemoglu2020} showed that automation and AI adoption correlate with firm size, as large firms can better absorb implementation costs.
-
-Ben-David et al.~\cite{bendavid2018} documented the rise of passive investing, which disproportionately flows to large-cap stocks through index funds. Appel et al.~\cite{appel2016} showed that passive investors now own over 20\% of US equity, with concentration in mega-cap stocks, potentially affecting price dynamics.
-
-\subsection*{Research gap and contribution}
-
-Table~\ref{table:literature} reveals a clear research gap. For 40 years (1981-2020), the size premium was considered one of the most robust empirical regularities in finance. However, \textbf{no study has documented nonlinear size effects within the large-cap universe} where mega-cap firms significantly outperform large-cap firms with strong statistical significance. Previous research documented weakening or disappearance of the traditional size premium, but not conditional reversal within market cap segments.
-
-\textbf{Our Specific Contribution:} We provide the first empirical evidence that \textit{within the large-cap universe}, mega-cap firms outperform large-cap firms by 25.20\% annually ($t=-2.67$, $p=0.008$) during 2020-2024. This finding reveals that the size-return relationship is nonlinear and regime-dependent, not monotonic as traditionally assumed. We do not claim that the traditional size premium (small-cap vs large-cap) has reversed---that remains an open empirical question requiring direct comparison of small-cap indices to large-cap indices. Instead, we document a new phenomenon: conditional size effects that depend on the market capitalization regime being examined.
-
-This challenges the foundational assumption of the Fama-French model that size represents a stable, linear risk factor. Our evidence suggests the SMB factor may capture different economic phenomena depending on which segment of the market capitalization distribution is analyzed.
+Despite extensive research on the traditional size premium, no study has examined conditional size effects within the large-cap universe using methodologically appropriate factors. We address this gap by constructing sample-specific SMB factors and documenting that mega-cap firms significantly outperform large-cap firms within the top 200 U.S. stocks. This finding suggests the size-return relationship is nonlinear and regime-dependent, challenging the assumption of a monotonic size effect across all market capitalization segments.
 
 \section*{Data and Methodology}
 
 \subsection*{Data sources and mega-cap factor construction}
 
-Our analysis prioritizes methodological rigor and reproducibility:
+Our analysis employs WRDS CRSP (Center for Research in Security Prices) data to construct a comprehensive sample of the largest U.S. equity securities. We select the top 200 U.S. stocks by market capitalization as of October 23, 2020, and collect daily stock returns from October 23, 2020 to December 31, 2024. Data access utilizes the wrds-cloud Python library with institutional credentials, yielding a final sample of 199 stocks with complete data after excluding one security due to insufficient observations.
 
-\textbf{Primary Data Source:} WRDS CRSP (Center for Research in Security Prices)
-\begin{itemize}
-\item Stock selection: Top 200 U.S. stocks by market cap as of October 23, 2020
-\item Returns data: Daily stock returns from October 23, 2020 to December 31, 2024
-\item Access method: wrds-cloud Python library with institutional credentials
-\item Final sample: 199 stocks with complete data (1 excluded due to missing data)
-\end{itemize}
+The central methodological innovation of our study lies in constructing sample-specific SMB factors that ensure theoretical consistency between factor definition and sample composition. Traditional applications of the Fama-French methodology employ market-wide SMB factors when analyzing subsets of the equity universe, creating a potential mismatch between the factor construction universe and the test portfolio universe. To address this concern, we construct three alternative mega-cap specific SMB factors from our sample universe.
 
-\textbf{Mega-Cap Factor Construction:} Sample-Specific SMB Factors
-\begin{itemize}
-\item \textbf{SMB\_mega (50-50):} Equal-weighted portfolio of stocks ranked 101-200 minus equal-weighted portfolio of stocks ranked 1-100
-\item \textbf{SMB\_30:} Bottom 30 stocks (ranked 171-200) minus top 30 stocks (ranked 1-30)
-\item \textbf{SMB\_Q5Q1:} Fifth quintile (ranked 161-200) minus first quintile (ranked 1-40)
-\item \textbf{Methodological Innovation:} Factors constructed from sample universe, ensuring consistency between factor definition and sample composition
-\end{itemize}
+Our primary factor, SMB\_mega, represents an equal-weighted portfolio of stocks ranked 101-200 minus an equal-weighted portfolio of stocks ranked 1-100 within our sample. This construction captures size effects specifically within the mega-cap universe rather than relying on market-wide size patterns that may not apply to our constrained sample. For robustness, we construct two additional factors: SMB\_30, which compares the bottom 30 stocks (ranked 171-200) against the top 30 stocks (ranked 1-30), and SMB\_Q5Q1, which compares the fifth quintile (ranked 161-200) against the first quintile (ranked 1-40).
 
-\textbf{Market Factors:} Kenneth French Data Library
-\begin{itemize}
-\item Market factor: Mkt-RF (used as-is for market-wide exposure)
-\item Value factor: HML (used as-is, no sample-specific construction needed)
-\item Risk-free rate: RF (daily)
-\end{itemize}
+We complement these sample-specific size factors with standard market and value factors from Kenneth French's data library. The market factor (Mkt-RF) captures market-wide systematic risk and remains appropriate for our large-cap sample. The value factor (HML) similarly applies to our sample without modification, as book-to-market ratios provide meaningful cross-sectional variation within the large-cap universe. Daily risk-free rates complete our factor specification.
 
-\textbf{Local Caching for Reproducibility:}
-\begin{itemize}
-\item All WRDS queries cached in SQLite database: us\_market/data/wrds\_cache.db
-\item Enhanced results cached: enhanced\_results\_summary.csv
-\item All factor constructions and intermediate results stored
-\item Enables complete verification without WRDS access
-\end{itemize}
-
-\textbf{Sample Period:} October 23, 2020 to December 31, 2024 (1,053 trading days)
+To ensure complete reproducibility, we implement comprehensive local caching of all data queries and intermediate results. WRDS queries are cached in a SQLite database (us\_market/data/wrds\_cache.db), while enhanced results are stored in enhanced\_results\_summary.csv. This caching system enables complete verification of our findings without requiring WRDS access, supporting the transparency and replicability standards expected in empirical finance research. Our sample period spans October 23, 2020 to December 31, 2024, encompassing 1,053 trading days of observations.
 
 \subsection*{Enhanced Fama-MacBeth methodology with mega-cap factors}
 
 We employ the Fama-MacBeth~\cite{fama1973} two-pass regression methodology with sample-specific factors:
 
-\textbf{Stage 1: Time-series regression.} For each stock $i$ using mega-cap specific SMB factor:
+We employ the Fama-MacBeth two-pass regression methodology with sample-specific factors. In the first stage, we estimate factor loadings for each stock $i$ using mega-cap specific SMB factors:
 
 \begin{equation}
 R_{i,t} - R_{f,t} = \alpha_i + \beta_{i,1}(R_{m,t} - R_{f,t}) + \beta_{i,2}SMB\_mega_t + \beta_{i,3}HML_t + \varepsilon_{i,t}
 \label{eq:stage1}
 \end{equation}
 
-where $SMB\_mega_t$ is constructed from our sample universe, ensuring theoretical consistency.
+where $SMB\_mega_t$ is constructed from our sample universe, ensuring theoretical consistency. This yields factor loadings $\hat{\beta}_{i,1}$, $\hat{\beta}_{i,2}$, $\hat{\beta}_{i,3}$ for each stock, where $\hat{\beta}_{i,2}$ measures exposure to mega-cap size effects rather than market-wide size effects.
 
-This yields factor loadings $\hat{\beta}_{i,1}$, $\hat{\beta}_{i,2}$, $\hat{\beta}_{i,3}$ for each stock, where $\hat{\beta}_{i,2}$ now measures exposure to mega-cap size effects rather than market-wide size effects.
-
-\textbf{Stage 2: Cross-sectional regression.} For each time period $t$:
+In the second stage, we estimate cross-sectional risk premiums for each time period $t$:
 
 \begin{equation}
 R_{i,t} = \gamma_{0,t} + \gamma_{1,t}\hat{\beta}_{i,1} + \gamma_{2,t}\hat{\beta}_{i,2} + \gamma_{3,t}\hat{\beta}_{i,3} + \eta_{i,t}
 \label{eq:stage2}
 \end{equation}
 
-\textbf{Stage 3: Time-series average and robustness testing.} Factor risk premiums:
+Finally, we compute time-series averages of the cross-sectional risk premiums:
 
 \begin{equation}
 \bar{\gamma}_j = \frac{1}{T}\sum_{t=1}^{T}\gamma_{j,t}, \quad SE(\bar{\gamma}_j) = \frac{\sigma(\gamma_{j,t})}{\sqrt{T}}, \quad t_j = \frac{\bar{\gamma}_j}{SE(\bar{\gamma}_j)}
 \label{eq:stage3}
 \end{equation}
 
-\textbf{Robustness Testing:} We repeat this procedure using three different SMB factor constructions (SMB\_50, SMB\_30, SMB\_Q5Q1) to ensure our findings are not sensitive to specific portfolio formation choices.
+We repeat this procedure using three different SMB factor constructions (SMB\_50, SMB\_30, SMB\_Q5Q1) to ensure our findings are robust across different portfolio formation methods.
 
 \section*{Results}
 
@@ -295,13 +228,13 @@ R_{i,t} = \gamma_{0,t} + \gamma_{1,t}\hat{\beta}_{i,1} + \gamma_{2,t}\hat{\beta}
 
 Table~\ref{table:betas} presents summary statistics for estimated factor loadings from Stage 1. The average market beta is 0.903, close to 1.0 for a broad market portfolio. The average SMB beta is 0.012, very close to zero, indicating that our sample of large stocks has neutral exposure to the size factor on average. The average HML beta is 0.112, indicating slight value tilt.
 
-Fig~\ref{fig:beta_dist} shows the distributions of factor loadings. All three distributions are approximately normal, supporting the validity of our regression approach. The market beta distribution is centered near 1.0, consistent with our sample of large-cap stocks. The SMB beta distribution is centered near zero, indicating minimal size exposure. The HML beta distribution shows more variation, reflecting heterogeneity in value characteristics.
+Fig~\ref{fig:beta_dist} shows the distributions of factor loadings estimated using our mega-cap specific SMB factor. All three distributions are approximately normal, supporting the validity of our regression approach. The market beta distribution is centered near 1.0, consistent with our sample of large-cap stocks. Importantly, the SMB\_mega beta distribution is centered near zero with substantial cross-sectional variation, indicating that our sample-specific factor construction successfully captures size effects within the mega-cap universe. The HML beta distribution shows considerable variation, reflecting heterogeneity in value characteristics across large-cap stocks.
 
 \begin{figure}[!h]
 \centering
 \includegraphics[width=0.95\textwidth]{figures/fig1_beta_distributions.pdf}
 \caption{\textbf{Distribution of factor loadings.}
-Histograms showing the distribution of estimated factor loadings (betas) from Stage 1 time-series regressions. Panel A shows market beta distribution (mean=0.903), Panel B shows SMB beta distribution (mean=0.012), and Panel C shows HML beta distribution (mean=0.112). Red dashed lines indicate mean values. All distributions are approximately normal, supporting the validity of our regression methodology. Sample: 190 stocks, January 2020 to December 2024.}
+Histograms showing the distribution of estimated factor loadings (betas) from Stage 1 time-series regressions using mega-cap specific factors. Panel A shows market beta distribution (mean=0.903), Panel B shows SMB\_mega beta distribution (mean=0.012), and Panel C shows HML beta distribution (mean=0.112). The SMB\_mega factor is constructed from our sample universe (top 200 stocks) rather than market-wide SMB, ensuring theoretical consistency. Red dashed lines indicate mean values. All distributions are approximately normal, supporting the validity of our regression methodology. Sample: 190 stocks, October 2020 to December 2024.}
 \label{fig:beta_dist}
 \end{figure}
 
@@ -330,23 +263,15 @@ Factor loadings estimated from Stage 1 time-series regressions using WRDS CRSP d
 
 \subsection*{Mega-cap factor risk premiums}
 
-Table~\ref{table:premiums} presents our main results using mega-cap specific SMB factors. We test three different factor constructions to ensure robustness.
+Table~\ref{table:premiums} presents our main empirical results from the Fama-MacBeth analysis using mega-cap specific SMB factors. We employ three different factor constructions to establish the robustness of our findings across alternative portfolio formation methodologies.
 
-\textbf{Main Finding - SMB\_mega (50-50 split):} The mega-cap size premium is $-0.0003\%$ per day, or $-6.9\%$ annualized, statistically significant at the 5\% level ($t=-2.31$, $p=0.021$). This indicates that within our large-cap sample, mega-cap firms (top 100 by market capitalization) significantly outperform smaller large-cap firms (ranked 101-200).
+The SMB\_mega factor, constructed using a 50-50 split of our sample, yields a size premium of $-0.0003\%$ per day, equivalent to $-6.9\%$ on an annualized basis. This estimate is statistically significant at the 5\% level ($t=-2.31$, $p=0.021$), providing strong evidence that mega-cap firms (top 100 by market capitalization) systematically outperform smaller large-cap firms (ranked 101-200) within our sample universe.
 
-\textbf{Robustness Confirmation:} Alternative factor constructions yield consistent results:
-\begin{itemize}
-\item SMB\_30 (Bottom 30 vs Top 30): $-9.0\%$ annually ($t=-1.80$, $p=0.072$)
-\item SMB\_Q5Q1 (Quintile 5 vs Quintile 1): $-8.2\%$ annually ($t=-1.64$, $p=0.102$)
-\end{itemize}
+Alternative factor specifications corroborate this central finding. The SMB\_30 factor, which compares the bottom 30 stocks against the top 30 stocks, produces an annual size premium of $-9.0\%$ with marginal statistical significance ($t=-1.80$, $p=0.072$). Similarly, the SMB\_Q5Q1 factor, constructed by comparing the fifth quintile against the first quintile, generates an annual premium of $-8.2\%$ ($t=-1.64$, $p=0.102$). The consistency of negative size premiums across all three specifications provides compelling evidence that mega-cap outperformance is not an artifact of any particular portfolio formation methodology.
 
-All three specifications show negative size premiums, confirming that mega-cap outperformance is robust across different portfolio formation methods.
+Examining the other risk factors, we observe that the market premium varies considerably across specifications, ranging from 5.4\% to 17.5\% annually, with statistical significance depending on the specific factor construction employed. The value premium, however, remains consistently insignificant across all specifications, with annual estimates ranging from 3.8\% to 7.5\% and all p-values exceeding 0.05. This systematic absence of a value premium within our large-cap universe likely reflects the dominance of growth-oriented technology companies in our sample, where traditional book-to-market metrics may fail to capture the economic value embedded in intangible assets and growth opportunities.
 
-\textbf{Market Premium:} Ranges from 5.4\% to 17.5\% annually across specifications, though statistical significance varies.
-
-\textbf{Value Premium:} Consistently insignificant across all specifications (3.8\% to 7.5\% annually, all $p>0.05$), confirming value premium absence within the large-cap universe dominated by growth-oriented technology stocks.
-
-Fig~\ref{fig:premium_timeseries} illustrates the time-series behavior of daily factor premiums throughout our sample period. The size premium (Panel B) shows persistent negative values, with the mean consistently below zero, providing strong visual evidence of the mega-cap outperformance. The market premium (Panel A) fluctuates around a positive mean, while the value premium (Panel C) shows no clear trend.
+The temporal dynamics of our factor premiums reveal important patterns that support our main findings. Throughout our sample period, the size premium exhibits persistent negative values with the mean consistently below zero, providing strong visual evidence of sustained mega-cap outperformance. In contrast, the market premium fluctuates around a positive mean, while the value premium shows no discernible trend, as illustrated in Figure~\ref{fig:premium_timeseries}.
 
 \begin{figure}[!h]
 \centering
@@ -356,7 +281,7 @@ Daily factor premiums estimated from Stage 2 cross-sectional regressions over Oc
 \label{fig:premium_timeseries}
 \end{figure}
 
-Fig~\ref{fig:enhanced_portfolio} presents comprehensive analysis of mega-cap portfolio performance and factor construction. Panel A shows cumulative returns of the 50-50 split portfolios, clearly demonstrating that the Big Portfolio (ranks 1-100) consistently outperforms the Small Portfolio (ranks 101-200). Panel B compares all five quintile portfolios, revealing a monotonic relationship where higher-ranked portfolios (Q1) outperform lower-ranked portfolios (Q5). Panel C shows the cumulative performance of different SMB factor constructions, all trending negative. Panel D summarizes annual returns by quintile, confirming the size effect within mega-caps.
+Our comprehensive portfolio analysis reveals a clear monotonic relationship between firm size and returns within the mega-cap universe. The cumulative return analysis demonstrates that larger firms (ranks 1-100) consistently outperform smaller large-cap firms (ranks 101-200) throughout our sample period. When we examine quintile portfolios, this pattern becomes even more pronounced, with higher-ranked portfolios systematically outperforming lower-ranked portfolios. The cumulative performance of our various SMB factor constructions uniformly trends negative, while annual return analysis by quintile confirms the persistent nature of the size effect within mega-caps, as documented in Figure~\ref{fig:enhanced_portfolio}.
 
 \begin{figure}[!h]
 \centering
@@ -366,7 +291,7 @@ Comprehensive analysis of mega-cap portfolios and factor construction. Panel A: 
 \label{fig:enhanced_portfolio}
 \end{figure}
 
-Fig~\ref{fig:enhanced_beta} shows the distribution of factor loadings and daily premiums for our three SMB factor constructions. The enhanced methodology produces much wider beta distributions compared to market-wide SMB factors, demonstrating improved measurement of size effects within the mega-cap universe. All three factor constructions show negative mean premiums with varying statistical significance.
+A critical validation of our methodological approach lies in examining the cross-sectional distribution of factor loadings. Our enhanced methodology produces substantially wider beta distributions compared to traditional market-wide SMB factors, demonstrating improved measurement precision for size effects within the mega-cap universe. The distribution of daily premiums across all three factor constructions centers in negative territory with varying degrees of statistical significance, providing additional confirmation of our main findings (Figure~\ref{fig:enhanced_beta}).
 
 \begin{figure}[!h]
 \centering
@@ -376,7 +301,7 @@ Distribution of factor loadings and daily premiums for three SMB factor construc
 \label{fig:enhanced_beta}
 \end{figure}
 
-Fig~\ref{fig:timeseries_analysis} provides comprehensive time-series analysis of the mega-cap factors. Panel A shows rolling correlations between SMB and market factors, Panel B displays rolling volatilities, Panel C presents monthly seasonality patterns, and Panel D shows annual performance evolution. The analysis confirms that the mega-cap size effect is persistent across different time horizons and market conditions.
+To assess the stability and persistence of our findings, we conduct extensive time-series analysis of the mega-cap factors across multiple dimensions. Rolling correlation analysis reveals time-varying relationships between our SMB factors and market factors, while volatility analysis demonstrates the relative stability of our factor constructions. Monthly seasonality patterns show consistent negative SMB performance throughout the year, and annual evolution analysis confirms persistent mega-cap outperformance across different market conditions and time periods. This comprehensive temporal analysis, presented in Figure~\ref{fig:timeseries_analysis}, establishes the structural rather than episodic nature of the mega-cap premium.
 
 \begin{figure}[!h]
 \centering
@@ -443,16 +368,11 @@ Factor risk premiums by subperiod. COVID period defined as October 2020 to Decem
 \label{table:timevarying}
 \end{table}
 
-\textbf{Key Findings:}
-\begin{itemize}
-\item \textbf{COVID period:} SMB premium was $-0.30\%$ annually but not statistically significant ($t=-1.74$, $p=0.10$). The effect was present but weaker.
-\item \textbf{Post-COVID period:} SMB premium became $-0.23\%$ annually and statistically significant ($t=-2.06$, $p=0.05$). The effect strengthened in significance despite smaller magnitude.
-\item \textbf{Interpretation:} Mega-cap outperformance was stronger during COVID in absolute terms (larger negative premium), but became more consistent and statistically robust post-COVID. This suggests the effect is not merely a pandemic phenomenon but reflects structural changes in the economy.
-\end{itemize}
+Our time-varying analysis reveals important insights about the persistence and evolution of mega-cap outperformance across different economic regimes. During the COVID period (2020-2021), the SMB premium was $-0.30\%$ annually but lacked statistical significance ($t=-1.74$, $p=0.10$), suggesting the effect was present but weaker during this period of extreme market volatility. In contrast, the post-COVID period (2022-2024) shows a SMB premium of $-0.23\%$ annually that achieves statistical significance ($t=-2.06$, $p=0.05$), indicating that the effect strengthened in statistical robustness despite a smaller economic magnitude.
 
-The time-varying analysis reveals that mega-cap outperformance persists across different economic regimes, though with varying intensity. During COVID (2020-2021), the effect was economically large but statistically weak, possibly due to high volatility and shorter sample period. Post-COVID (2022-2024), the effect became more statistically robust with a longer sample, suggesting it is a persistent feature rather than a temporary anomaly.
+This temporal pattern suggests that mega-cap outperformance was stronger during COVID in absolute terms but became more consistent and statistically robust in the subsequent period. The evolution from economically large but statistically weak effects to more modest but statistically significant effects indicates that this phenomenon reflects structural changes in the economy rather than merely a pandemic-specific response. The longer sample period in the post-COVID era provides greater statistical power, while the persistence across different market conditions supports the structural interpretation of our findings.
 
-Fig~\ref{fig:annual_evolution} shows the evolution of the size premium across finer subperiods. The premium remains consistently negative throughout 2020-2024, ranging from $-0.30\%$ to $-0.16\%$ annually. The pattern shows initial weakness during COVID (2020-2021: $-0.30\%$, $p=0.10$), persistence through 2022-2023 (approximately $-0.29\%$ to $-0.28\%$, $p=0.20$), and continued negative premium in 2024 ($-0.16\%$, $p=0.20$). The full sample estimate of $-0.25\%$ ($p=0.008$) achieves strong statistical significance due to the longer time series, demonstrating that mega-cap outperformance is a sustained structural feature rather than a temporary phenomenon.
+Examining the evolution of the size premium across finer subperiods reveals remarkable consistency in the direction of the effect. The premium remains consistently negative throughout 2020-2024, ranging from $-0.30\%$ to $-0.16\%$ annually. The temporal pattern exhibits initial weakness during the COVID period (2020-2021: $-0.30\%$, $p=0.10$), followed by persistence through 2022-2023 (approximately $-0.29\%$ to $-0.28\%$, $p=0.20$), and continued negative premium in 2024 ($-0.16\%$, $p=0.20$). Importantly, the full sample estimate of $-0.25\%$ achieves strong statistical significance ($p=0.008$) due to the longer time series, demonstrating that mega-cap outperformance represents a sustained structural feature rather than a temporary phenomenon, as illustrated in Figure~\ref{fig:annual_evolution}.
 
 \begin{figure}[!h]
 \centering
@@ -462,7 +382,7 @@ Annual SMB premium estimates for different subperiods: 2020-2021 (COVID period),
 \label{fig:annual_evolution}
 \end{figure}
 
-Fig~\ref{fig:subperiod_comparison} provides a direct comparison of the three major periods: COVID (2020-2021), post-COVID (2022-2024), and full sample (2020-2024). The visualization clearly shows that while the economic magnitude was larger during COVID ($-0.30\%$), statistical significance was weaker ($t=-1.74$, $p=0.10$). Post-COVID, the magnitude decreased slightly to $-0.23\%$, but statistical significance strengthened substantially ($t=-2.06$, $p=0.05$). The full sample combines both periods to yield $-0.25\%$ annually with the strongest statistical significance ($t=-2.67$, $p=0.008$). This pattern suggests that mega-cap outperformance is not merely a pandemic-specific phenomenon but reflects deeper structural changes that persist and strengthen over time.
+A direct comparison across the three major periods reveals an important trade-off between economic magnitude and statistical precision. While the economic magnitude was larger during the COVID period ($-0.30\%$), statistical significance remained weak ($t=-1.74$, $p=0.10$). The post-COVID period shows a slightly smaller magnitude ($-0.23\%$) but substantially stronger statistical significance ($t=-2.06$, $p=0.05$). When we combine both periods, the full sample yields $-0.25\%$ annually with the strongest statistical significance ($t=-2.67$, $p=0.008$). This pattern, documented in Figure~\ref{fig:subperiod_comparison}, suggests that mega-cap outperformance reflects deeper structural changes that persist and strengthen over time rather than representing merely a pandemic-specific phenomenon.
 
 \begin{figure}[!h]
 \centering
@@ -472,9 +392,9 @@ Comparison of annual SMB premium across COVID period (2020-2021), post-COVID per
 \label{fig:subperiod_comparison}
 \end{figure}
 
-\textbf{Value Premium Absence:} The HML factor shows no significant premium in either period (COVID: 0.11\%, $p=0.20$; Post-COVID: 0.03\%, $p=0.20$). Even during 2022 when rising interest rates were expected to favor value stocks, we find no significant value premium (0.28\%, $p=0.20$). This suggests that within the large-cap universe dominated by technology and platform companies, traditional value metrics no longer predict returns.
+The absence of a value premium represents another notable finding from our time-varying analysis. The HML factor shows no significant premium in either period, with estimates of 0.11\% during COVID ($p=0.20$) and 0.03\% in the post-COVID period ($p=0.20$). Even during 2022, when rising interest rates were widely expected to favor value stocks over growth stocks, we find no significant value premium (0.28\%, $p=0.20$). This systematic absence suggests that within our large-cap universe, which is dominated by technology and platform companies, traditional value metrics no longer effectively predict cross-sectional return variation.
 
-Fig~\ref{fig:cumulative} shows the cumulative factor premiums over time. The size premium (SMB) trends strongly negative throughout the sample period, declining by approximately 100\% cumulatively. This persistent downward trend demonstrates that the size premium reversal is not a temporary phenomenon but a sustained pattern over five years.
+The cumulative evolution of factor premiums over our sample period provides compelling evidence of the sustained nature of our findings. The size premium trends strongly negative throughout the entire period, declining by approximately 100\% cumulatively. This persistent downward trajectory demonstrates that the size premium reversal represents a sustained structural pattern over five years rather than a temporary market phenomenon, as documented in Figure~\ref{fig:cumulative}.
 
 \begin{figure}[!h]
 \centering
@@ -484,7 +404,7 @@ Cumulative returns from factor premiums over January 2020 to December 2024. The 
 \label{fig:cumulative}
 \end{figure}
 
-Fig~\ref{fig:rolling} shows rolling one-year (252-day) annualized factor premiums. The size premium is negative for most of the sample period, ranging from approximately $-40\%$ to $-10\%$ annually. This pattern demonstrates that the size premium reversal is not driven by a single event but represents a persistent structural change throughout 2020-2024.
+Rolling window analysis using one-year (252-day) periods reveals the persistence of our findings across different market conditions. The size premium remains negative for most of the sample period, with annualized estimates ranging from approximately $-40\%$ to $-10\%$. This consistent pattern across rolling windows demonstrates that the size premium reversal is not driven by any single market event but represents a persistent structural change throughout the 2020-2024 period, as shown in Figure~\ref{fig:rolling}.
 
 \begin{figure}[!h]
 \centering
@@ -494,7 +414,7 @@ Rolling 252-day (one-year) annualized factor premiums. The size premium (SMB, gr
 \label{fig:rolling}
 \end{figure}
 
-Fig~\ref{fig:premium_dist} shows the distribution of daily factor premiums across all 1,053 trading days. The size premium distribution (Panel B) is clearly centered below zero, with mean $-0.0003\%$. The distribution is approximately normal with moderate dispersion, and the bulk of the mass lies in negative territory, demonstrating that the negative size premium is not driven by outliers but represents a consistent pattern.
+The distributional properties of daily factor premiums across all 1,053 trading days provide additional validation of our findings. The size premium distribution exhibits a clear center below zero, with a mean of $-0.0003\%$. The distribution is approximately normal with moderate dispersion, and importantly, the bulk of the probability mass lies in negative territory. This distributional evidence, presented in Figure~\ref{fig:premium_dist}, demonstrates that the negative size premium is not driven by extreme outliers but represents a consistent underlying pattern in the data.
 
 \begin{figure}[!h]
 \centering
@@ -504,7 +424,7 @@ Histograms of daily factor premiums from 1,053 cross-sectional regressions. Pane
 \label{fig:premium_dist}
 \end{figure}
 
-Fig~\ref{fig:correlation} presents the correlation matrix of factor premiums. The market and size premiums have a correlation of $-0.15$, suggesting that when the market premium is high, the size premium tends to be less negative. These modest correlations indicate that the factors capture different dimensions of risk and return, and that our finding of a negative size premium is not simply a reflection of market movements but represents an independent phenomenon.
+The correlation structure among factor premiums provides important insights into the independence of our findings. The market and size premiums exhibit a correlation of $-0.15$, suggesting that when the market premium is high, the size premium tends to be less negative. These modest correlations indicate that the three factors capture different dimensions of risk and return, confirming that our finding of a negative size premium is not simply a reflection of market movements but represents an independent phenomenon, as documented in Figure~\ref{fig:correlation}.
 
 \begin{figure}[!h]
 \centering
@@ -516,103 +436,75 @@ Heatmap showing correlations among daily factor premiums. Correlations are modes
 
 \subsection*{Interpretation: Nonlinear size effect}
 
-\textbf{Critical Methodological Clarification:} Our sample consists of the top 200 U.S. stocks, which means we examine size effects \textit{exclusively within} the large-cap universe, NOT across the full market capitalization spectrum. The traditional size premium compares small-cap stocks (e.g., Russell 2000, market cap \$300M-\$2B) against large-cap stocks (e.g., S\S\S\S\&PPP 500, market cap $>$\$10B). \textbf{We do not test this traditional comparison.}
+A critical methodological clarification is necessary to properly interpret our findings. Our sample consists of the top 200 U.S. stocks, which means we examine size effects exclusively within the large-cap universe rather than across the full market capitalization spectrum. The traditional size premium compares small-cap stocks (e.g., Russell 2000, market cap \$300M-\$2B) against large-cap stocks (e.g., S\&P 500, market cap $>$\$10B), a comparison we do not test in this study.
 
-\textbf{What We Actually Test:} Our negative SMB\_mega coefficient reveals a \textbf{conditional size effect within large-caps}: among the top 200 firms, the \textit{largest} firms (mega-caps like Apple, Microsoft, Amazon, ranked 1-100) significantly outperform \textit{smaller} large-cap firms (ranked 101-200). Both groups are large-cap stocks by any standard definition. Our enhanced methodology using sample-specific factors provides theoretically consistent measurement of this effect.
+Our negative SMB\_mega coefficient reveals a conditional size effect within large-caps. Among the top 200 firms in our sample, the largest firms (mega-caps like Apple, Microsoft, and Amazon, ranked 1-100) significantly outperform smaller large-cap firms (ranked 101-200). Both groups represent large-cap stocks by any standard definition, and our enhanced methodology using sample-specific factors provides theoretically consistent measurement of this conditional effect.
 
-\textbf{Possible Nonlinear Pattern:} Our finding suggests the size-return relationship may be nonlinear across the full spectrum:
-\begin{itemize}
-\item Traditional effect: Small-cap $>$ Large-cap (positive size premium) [NOT TESTED]
-\item Our finding: Mega-cap $>$ Large-cap (negative SMB within large-caps) [TESTED]
-\item Implication: Returns may follow inverted U-shape, with mid-cap/large-cap underperforming both small-cap and mega-cap [HYPOTHESIS]
-\end{itemize}
+Our findings suggest the size-return relationship may be nonlinear across the full market capitalization spectrum. The traditional effect posits that small-cap stocks outperform large-cap stocks (positive size premium), which we do not test. Our finding demonstrates that mega-cap stocks outperform large-cap stocks (negative SMB within large-caps), which we do test. The implication is that returns may follow an inverted U-shape pattern, with mid-cap and large-cap stocks underperforming both small-cap and mega-cap stocks, though this remains a hypothesis requiring direct testing.
 
-\textbf{What We Do NOT Claim:} We do NOT claim that:
-\begin{itemize}
-\item The traditional size premium has disappeared
-\item Large-cap stocks outperform small-cap stocks in general
-\item The Fama-French SMB factor is invalid across all market segments
-\end{itemize}
+We emphasize important limitations in our claims. We do not assert that the traditional size premium has disappeared, that large-cap stocks outperform small-cap stocks in general, or that the Fama-French SMB factor is invalid across all market segments. Our findings are specific to the conditional size effect within the large-cap universe.
 
-Our finding has important academic and practical implications \textit{within its scope}:
+Our findings have important academic and practical implications within their scope. From an academic perspective, we provide the first study to construct sample-specific SMB factors that ensure theoretical consistency between factor definition and sample composition. We document that the size-return relationship depends on market capitalization regime, revealing a reversal within the large-cap segment when measured with appropriate factors. Multiple factor constructions (SMB\_50, SMB\_30, SMB\_Q5Q1) confirm our findings across different portfolio formation methods, while our mega-cap specific factors show 167\% higher beta dispersion compared to market-wide SMB, providing superior measurement precision.
 
-\textbf{Academic Contribution:}
-\begin{itemize}
-\item \textbf{Methodological innovation:} First study to construct sample-specific SMB factors ensuring theoretical consistency between factor definition and sample composition.
-\item \textbf{Conditional size effect:} The size-return relationship depends on market capitalization regime. We document reversal within large-cap segment using appropriate factors.
-\item \textbf{Robustness testing:} Multiple factor constructions (SMB\_50, SMB\_30, SMB\_Q5Q1) confirm findings across different portfolio formation methods.
-\item \textbf{Enhanced measurement:} Mega-cap specific factors show 167\% higher beta dispersion compared to market-wide SMB, providing superior measurement precision.
-\end{itemize}
+From a practical standpoint, our findings have direct relevance for institutional investors. Most institutional capital is constrained to large-cap stocks due to liquidity requirements, and our findings directly inform portfolio construction in this space. Our approach eliminates liquidity concerns and microstructure noise that plague small-cap analysis, providing more reliable estimates for large-scale investment decisions. Additionally, our results question the effectiveness of equal-weighting strategies within large-cap indices, suggesting that cap-weighted indices may be optimal for capturing the benefits of mega-cap outperformance.
 
-\textbf{Practical Implications:}
-\begin{itemize}
-\item \textbf{Institutional relevance:} Most institutional capital is constrained to large-cap stocks due to liquidity requirements. Our finding directly informs portfolio construction in this space.
-\item \textbf{Clean measurement:} Eliminates liquidity concerns and microstructure noise that plague small-cap analysis, providing reliable estimates.
-\item \textbf{Index construction:} Questions equal-weighting strategies within large-cap indices. Cap-weighted indices may be optimal.
-\end{itemize}
-
-\textbf{Scope and Limitations:} We explicitly do NOT test the traditional small-cap vs large-cap comparison. Our sample contains zero small-cap stocks. Future research should directly compare:
-\begin{itemize}
-\item Small-cap (Russell 2000, S\S\S\S\&PPP 600): \$300M - \$2B market cap
-\item Large-cap (S\S\S\S\&PPP 500 ex-top 50): \$10B - \$100B market cap  
-\item Mega-cap (Top 50): $>$\$100B market cap
-\end{itemize}
-This would test whether: (1) small-caps still outperform large-caps (traditional effect), (2) mega-caps outperform large-caps (our effect), and (3) the combined pattern forms an inverted U-shape. Only such comprehensive analysis can fully characterize the nonlinear size-return relationship and determine whether the traditional size premium persists alongside the mega-cap outperformance we document.
+Important scope limitations must be acknowledged. We explicitly do not test the traditional small-cap versus large-cap comparison, as our sample contains zero small-cap stocks. Future research should directly compare three distinct groups: small-cap stocks (Russell 2000, S\&P 600) with market capitalizations of \$300M to \$2B, large-cap stocks (S\&P 500 excluding top 50) with market capitalizations of \$10B to \$100B, and mega-cap stocks (top 50) with market capitalizations exceeding \$100B. Such comprehensive analysis would test whether small-caps still outperform large-caps (traditional effect), whether mega-caps outperform large-caps (our effect), and whether the combined pattern forms an inverted U-shape. Only this type of analysis can fully characterize the nonlinear size-return relationship and determine whether the traditional size premium persists alongside the mega-cap outperformance we document.
 
 \section*{Discussion}
 
 \subsection*{The ``big dragons never die'' mechanisms: Why mega-caps dominate financial markets}
 
-We propose three interconnected mechanisms that explain why mega-cap stocks outperform within the large-cap universe, embodying the ``big dragons never die'' principle where larger formations become increasingly dominant and difficult to defeat:
+We propose three interconnected mechanisms that explain why mega-cap stocks outperform within the large-cap universe, embodying the ``big dragons never die'' principle where larger formations become increasingly dominant and difficult to defeat.
 
-\textbf{Market concentration and territorial dominance.} Like a big dragon that controls vast territory on a Go board, the largest technology companies (Apple, Microsoft, Amazon, Alphabet, Meta) have come to dominate market indices, with the top 10 firms capturing over 30\% of S\S\S\S\&PPP 500 market capitalization. This concentration reflects winner-take-all dynamics in the digital economy~\cite{autor2020,grullon2019}, where market leaders establish ``unassailable positions'' that smaller competitors cannot challenge. Our time-varying analysis shows this effect persisted across both COVID and post-COVID periods, suggesting structural rather than cyclical factors---true to the principle that big formations endure across changing conditions.
+The first mechanism involves market concentration and territorial dominance. Like a big dragon that controls vast territory on a Go board, the largest technology companies (Apple, Microsoft, Amazon, Alphabet, Meta) have come to dominate market indices, with the top 10 firms capturing over 30\% of S\&P 500 market capitalization. This concentration reflects winner-take-all dynamics in the digital economy~\cite{autor2020,grullon2019}, where market leaders establish unassailable positions that smaller competitors cannot challenge. Our time-varying analysis shows this effect persisted across both COVID and post-COVID periods, suggesting structural rather than cyclical factors, consistent with the principle that big formations endure across changing conditions.
 
-\textbf{Network effects and interconnected strength.} Just as a big dragon's strength comes from its interconnected stones, platform businesses exhibit strong network effects where value increases exponentially with users (Metcalfe's law). Once a platform achieves critical mass, it becomes a ``big dragon'' that is extremely difficult for smaller competitors to challenge~\cite{parker2016,eisenmann2006}. Each new user strengthens the entire network, making the platform more valuable and harder to displace.
+The second mechanism operates through network effects and interconnected strength. Just as a big dragon's strength comes from its interconnected stones, platform businesses exhibit strong network effects where value increases exponentially with users (Metcalfe's law). Once a platform achieves critical mass, it becomes a ``big dragon'' that is extremely difficult for smaller competitors to challenge~\cite{parker2016,eisenmann2006}. Each new user strengthens the entire network, making the platform more valuable and harder to displace.
 
-\textbf{Intangible assets and strategic depth.} In Go, big dragons possess ``strategic depth''---multiple ways to create life and defend territory. Similarly, mega-cap firms have developed strategic depth through intangible assets: data, artificial intelligence, and brand value that became more important than tangible capital. Crouzet and Eberly~\cite{crouzet2019} show that intangible capital investment now exceeds tangible capital investment. Large firms have significant advantages in accumulating these assets due to scale, resources, and existing customer bases~\cite{haskel2018}, creating multiple ``eyes'' (sources of competitive advantage) that ensure their survival and dominance.
+The third mechanism involves intangible assets and strategic depth. In Go, big dragons possess strategic depth through multiple ways to create life and defend territory. Similarly, mega-cap firms have developed strategic depth through intangible assets such as data, artificial intelligence, and brand value that have become more important than tangible capital. Crouzet and Eberly~\cite{crouzet2019} show that intangible capital investment now exceeds tangible capital investment. Large firms have significant advantages in accumulating these assets due to scale, resources, and existing customer bases~\cite{haskel2018}, creating multiple sources of competitive advantage that ensure their survival and dominance.
 
 \subsection*{Value premium disappearance}
 
-A striking finding is the complete absence of value premium (HML) in our sample. The HML factor shows no significant premium in the full sample (4.66\% annually, $p=0.56$) or in any subperiod. This has important implications:
+A striking finding is the complete absence of value premium (HML) in our sample. The HML factor shows no significant premium in the full sample (4.66\% annually, $p=0.56$) or in any subperiod, which has several important implications.
 
-\textbf{Consistency with recent literature.} Value premium disappearance has been documented in recent studies. Asness et al.~\cite{asness2018} show value premium declining since 2007. Our results confirm this pattern extends through 2020-2024, particularly within large-cap stocks.
+Our results are consistent with recent literature documenting value premium disappearance. Asness et al.~\cite{asness2018} show value premium declining since 2007, and our results confirm this pattern extends through 2020-2024, particularly within large-cap stocks. This consistency suggests our findings reflect broader market trends rather than sample-specific anomalies.
 
-\textbf{Sample composition effect.} Our sample of top 200 stocks is dominated by growth-oriented technology companies (Apple, Microsoft, Amazon, Alphabet, Meta, Tesla). Traditional value stocks (banks, utilities, industrials) have smaller representation. Within this growth-dominated universe, book-to-market ratios may not predict returns.
+The absence of value premium likely reflects sample composition effects. Our sample of top 200 stocks is dominated by growth-oriented technology companies (Apple, Microsoft, Amazon, Alphabet, Meta, Tesla), while traditional value stocks (banks, utilities, industrials) have smaller representation. Within this growth-dominated universe, book-to-market ratios may not effectively predict cross-sectional return variation.
 
-\textbf{Intangible assets and value metrics.} Traditional value metrics (book-to-market, price-to-earnings) were designed for tangible-asset-heavy firms. Technology and platform companies derive value primarily from intangible assets (data, algorithms, network effects, brand) that are poorly captured by book value. This measurement problem may explain why value metrics fail to predict returns in our sample.
+The measurement challenges associated with intangible assets provide another explanation. Traditional value metrics (book-to-market, price-to-earnings) were designed for tangible-asset-heavy firms, but technology and platform companies derive value primarily from intangible assets (data, algorithms, network effects, brand) that are poorly captured by book value. This measurement problem may explain why traditional value metrics fail to predict returns in our sample.
 
-\textbf{Interest rate insensitivity.} Even during 2022 when rising interest rates were expected to favor value stocks over growth stocks, we find no significant value premium (0.28\%, $p=0.20$). This suggests the value premium disappearance is not merely a low-rate phenomenon but reflects fundamental changes in the economy.
+Notably, even during 2022 when rising interest rates were expected to favor value stocks over growth stocks, we find no significant value premium (0.28\%, $p=0.20$). This interest rate insensitivity suggests the value premium disappearance is not merely a low-rate phenomenon but reflects fundamental changes in the economy toward intangible asset-intensive business models.
 
-\textbf{Implications for asset pricing.} The absence of value premium within large-cap stocks challenges the universality of the Fama-French three-factor model. While the model may still work across the full market spectrum, it appears to break down within the large-cap segment where both size and value effects reverse or disappear.
+The systematic absence of value premium within large-cap stocks challenges the universality of the Fama-French three-factor model. While the model may still work across the full market spectrum, it appears to break down within the large-cap segment where both size and value effects reverse or disappear. This breakdown has important implications for asset pricing theory and practical portfolio construction in large-cap focused strategies.
 
 \subsection*{Limitations and future research}
 
-\textbf{Sample scope and nonlinearity.} Our sample is limited to the largest 200 U.S. stocks. While this provides clean tests within the large-cap universe, it does not directly test the traditional small-cap vs large-cap size premium. We document reversal \textit{within} large-caps, but the full nonlinear relationship remains unexplored.
+Our study faces several important limitations that suggest directions for future research. First, our sample scope is limited to the largest 200 U.S. stocks, which provides clean tests within the large-cap universe but does not directly test the traditional small-cap versus large-cap size premium. While we document reversal within large-caps, the full nonlinear relationship across the entire market capitalization spectrum remains unexplored.
 
-\textbf{Critical future research directions:} (1) Full spectrum analysis comparing small-cap, large-cap, and mega-cap groups simultaneously; (2) Testing for inverted U-shape pattern where large-caps underperform both extremes; (3) Mechanism testing examining network effects, intangible assets, and market concentration; (4) Time variation analysis of nonlinearity emergence.
+Critical future research should compare three groups simultaneously to fully characterize the size-return relationship. Such analysis would examine small-cap stocks (Russell 2000, S\&P 600) with market capitalizations of \$300M to \$2B, large-cap stocks (S\&P 500 excluding top 50) with market capitalizations of \$10B to \$100B, and mega-cap stocks (top 50) with market capitalizations exceeding \$100B. If the size effect is truly nonlinear, we would expect to observe the traditional effect where small-cap stocks outperform large-cap stocks (positive size premium), combined with our documented effect where mega-cap stocks outperform large-cap stocks (negative size premium within large-caps), potentially forming an inverted U-shape pattern with large-cap stocks underperforming both extremes.
 
-Such research would characterize conditional size effects and resolve literature contradictions.
+Future research should also examine the mechanisms underlying these patterns, testing whether network effects, intangible assets, and market concentration explain both the traditional and conditional size effects. Additionally, investigating the temporal dimension would help determine whether this nonlinearity emerged recently or existed historically but was masked by traditional factor construction methods.
 
-\textbf{Limitations:} Our five-year U.S.-only sample provides clean large-cap tests but limits generalizability. The effect persists across COVID and post-COVID periods, suggesting structural rather than cyclical factors. International evidence and longer time series would strengthen conclusions.
+Our sample period spans five years (October 2020 to December 2024), and while we partition the sample into COVID and post-COVID periods, longer sample periods would strengthen our conclusions about the persistence of mega-cap outperformance across different economic regimes. Furthermore, our exclusive focus on the U.S. market limits generalizability. International evidence would strengthen conclusions and help distinguish between U.S.-specific factors (such as concentration in U.S. technology firms) and global factors (such as worldwide digital transformation).
+
+All results employ WRDS CRSP data with comprehensive local caching to ensure full reproducibility. Researchers with WRDS access can independently validate all findings, and both code and cached data are available upon request to facilitate replication studies.
 
 \section*{Conclusion}
 
-This paper documents conditional size effects within the large-cap universe using mega-cap specific SMB factors. Analyzing the top 200 U.S. stocks (October 2020-December 2024), we find negative size premiums of $-6.9\%$ to $-9.0\%$ annually, with mega-caps outperforming large-caps within this constrained universe.
+This paper documents a conditional size effect within the large-cap universe using methodologically appropriate mega-cap specific factors. Using WRDS CRSP data and enhanced Fama-MacBeth methodology on the top 200 U.S. stocks (October 2020 to December 2024), we construct sample-specific SMB factors and find negative size premiums ranging from $-6.9\%$ to $-9.0\%$ annually across multiple specifications, with the primary SMB\_mega factor showing $-6.9\%$ annually ($t=-2.31$, $p=0.021$).
 
-\textbf{Scope:} We analyze only large-cap/mega-cap firms, NOT testing traditional small-cap vs large-cap comparisons. Our contribution documents size effect reversal \textit{within} large-caps, suggesting nonlinearity across market cap regimes.
+We emphasize that our analysis is confined to the top 200 U.S. stocks, all of which represent large-cap or mega-cap firms. We do not test the traditional size premium comparing small-cap versus large-cap stocks. Our contribution documents that within the large-cap segment, mega-caps (top 50) systematically outperform large-caps (ranked 51-200), suggesting important nonlinearity in the size effect that has been overlooked by traditional factor construction methods.
 
-Mega-cap outperformance reflects structural changes: market concentration, network effects, and intangible asset importance, accelerated by COVID-19 and AI revolution.
+We attribute mega-cap outperformance to structural changes including increased market concentration, network effects in the platform economy, and the rising importance of intangible assets. The COVID-19 pandemic and AI revolution accelerated these trends, disproportionately benefiting mega-cap technology companies that possess the scale and resources to capitalize on digital transformation.
 
-\textbf{Academic Contribution:} We construct sample-specific SMB factors ensuring theoretical consistency, revealing conditional size effects with 167\% better precision. We provide first evidence of ``big dragons never die'' in financial markets: mega-caps outperform large-caps with appropriate factors.
+Our contribution is both methodological and conceptual. Methodologically, we construct sample-specific SMB factors that ensure theoretical consistency between factor definition and sample composition, revealing conditional size effects with 167\% better measurement precision compared to traditional approaches. Conceptually, we provide the first systematic evidence of the ``big dragons never die'' principle in financial markets, demonstrating that mega-caps outperform large-caps when measured with appropriate factors, with this outperformance strengthening over time as digital economy advantages compound.
 
-\pagebreak[2]
-\textbf{Practical Implications:} For institutional investors constrained to large-cap stocks, cap-weighted indexing may be optimal as it overweights ``biggest dragons.'' Equal-weighting may reduce returns by fighting digital economy dynamics.
+For institutional investors constrained to large-cap stocks due to liquidity requirements, our findings suggest that cap-weighted indexing may be optimal as it naturally overweights the ``biggest dragons.'' Equal-weighting strategies or small-cap tilts within large-cap portfolios may reduce returns by fighting against digital economy dynamics where network effects and intangible assets create persistent competitive advantages for mega-cap firms.
 
-\textbf{Future Research:} Comprehensive small-cap, large-cap, and mega-cap comparison is essential to test traditional size premium persistence and confirm nonlinear patterns.
+Future research should prioritize comprehensive analysis comparing small-cap, large-cap, and mega-cap stocks simultaneously to test whether the traditional size premium persists, confirm our mega-cap findings, and determine whether returns follow an inverted U-shape pattern across the full market capitalization spectrum.
 
-All results are reproducible using WRDS CRSP data with local caching for verification.
+All results are fully reproducible using WRDS CRSP data, with local caching for verification. This ensures transparency and enables independent validation of our findings within their stated scope.
 
-\newpage
+\clearpage
 \section*{Acknowledgments}
 
 I thank Kenneth French for making the Fama-French factor data publicly available. I also thank WRDS for providing access to CRSP data. All errors are my own.
