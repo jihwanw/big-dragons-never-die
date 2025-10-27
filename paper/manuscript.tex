@@ -589,49 +589,30 @@ A striking finding is the complete absence of value premium (HML) in our sample.
 
 \textbf{Sample scope and nonlinearity.} Our sample is limited to the largest 200 U.S. stocks. While this provides clean tests within the large-cap universe, it does not directly test the traditional small-cap vs large-cap size premium. We document reversal \textit{within} large-caps, but the full nonlinear relationship remains unexplored.
 
-\textbf{Critical future research directions:}
-\begin{itemize}
-\item \textbf{Full spectrum analysis:} Compare three groups simultaneously:
-  \begin{itemize}
-  \item Small-cap (Russell 2000, S\S\S\S\&PPP 600): Market cap \$300M - \$2B
-  \item Large-cap (S\S\S\S\&PPP 500 ex-top 50): Market cap \$10B - \$100B
-  \item Mega-cap (Top 50): Market cap $>$ \$100B
-  \end{itemize}
-\item \textbf{Expected pattern:} If size effect is truly nonlinear:
-  \begin{itemize}
-  \item Traditional effect: Small-cap $>$ Large-cap (positive size premium)
-  \item Our effect: Mega-cap $>$ Large-cap (negative size premium within large-caps)
-  \item Combined: Inverted U-shape with large-cap underperforming both extremes
-  \end{itemize}
-\item \textbf{Mechanism testing:} Examine whether network effects, intangible assets, and market concentration explain both patterns
-\item \textbf{Time variation:} Test whether nonlinearity emerged recently or existed historically
-\end{itemize}
+\textbf{Critical future research directions:} (1) Full spectrum analysis comparing small-cap, large-cap, and mega-cap groups simultaneously; (2) Testing for inverted U-shape pattern where large-caps underperform both extremes; (3) Mechanism testing examining network effects, intangible assets, and market concentration; (4) Time variation analysis of nonlinearity emergence.
 
-This research would fully characterize the conditional nature of size effects and resolve apparent contradictions in the literature.
+Such research would characterize conditional size effects and resolve literature contradictions.
 
-\textbf{Sample period and time variation.} Our sample period is five years (January 2020 to December 2024). We partition the sample into COVID (2020-2021) and post-COVID (2022-2024) periods. The mega-cap outperformance was economically larger during COVID ($-0.30\%$ annually) but statistically weaker ($p=0.10$), while post-COVID it became more statistically robust ($p=0.05$) despite smaller magnitude ($-0.23\%$). This suggests the effect is persistent across economic regimes, though longer sample periods would strengthen conclusions.
-
-\textbf{Geographic scope.} We focus exclusively on the U.S. market. International evidence would strengthen conclusions and help distinguish between U.S.-specific factors (concentration in U.S. tech firms) and global factors (worldwide digital transformation).
-
-\textbf{Reproducibility.} All results use WRDS CRSP data cached locally in wrds\_cache.db. Researchers with WRDS access can reproduce all findings. Code and cache available upon request.
+\textbf{Limitations:} Our five-year U.S.-only sample provides clean large-cap tests but limits generalizability. The effect persists across COVID and post-COVID periods, suggesting structural rather than cyclical factors. International evidence and longer time series would strengthen conclusions.
 
 \section*{Conclusion}
 
-This paper documents a conditional size effect within the large-cap universe using methodologically appropriate mega-cap specific factors. Using WRDS CRSP data and enhanced Fama-MacBeth methodology on the top 200 U.S. stocks (October 2020 to December 2024), we construct sample-specific SMB factors and find negative size premiums ranging from $-6.9\%$ to $-9.0\%$ annually across multiple specifications, with the primary SMB\_mega factor showing $-6.9\%$ annually ($t=-2.31$, $p=0.021$).
+This paper documents conditional size effects within the large-cap universe using mega-cap specific SMB factors. Analyzing the top 200 U.S. stocks (October 2020-December 2024), we find negative size premiums of $-6.9\%$ to $-9.0\%$ annually, with mega-caps outperforming large-caps within this constrained universe.
 
-\textbf{Critical Scope Statement:} Our analysis is confined to the top 200 U.S. stocks, all large-cap or mega-cap firms. We do NOT test the traditional size premium (small-cap vs large-cap). Our contribution documents that \textit{within} the large-cap segment, mega-caps (top 50) outperform large-caps (ranked 51-200), suggesting nonlinearity in the size effect.
+\textbf{Scope:} We analyze only large-cap/mega-cap firms, NOT testing traditional small-cap vs large-cap comparisons. Our contribution documents size effect reversal \textit{within} large-caps, suggesting nonlinearity across market cap regimes.
 
-We attribute mega-cap outperformance to structural changes including increased market concentration, network effects in the platform economy, and the rising importance of intangible assets. The COVID-19 pandemic and AI revolution accelerated these trends, disproportionately benefiting mega-cap technology companies.
+Mega-cap outperformance reflects structural changes: market concentration, network effects, and intangible asset importance, accelerated by COVID-19 and AI revolution.
 
-\textbf{Academic Contribution:} Our contribution is methodological and conceptual. Methodologically, we construct sample-specific SMB factors ensuring theoretical consistency, revealing conditional size effects with 167\% better precision. Conceptually, we provide first evidence of ``big dragons never die'' in financial markets: mega-caps outperform large-caps with appropriate factors, strengthening over time as digital economy advantages compound.
+\textbf{Academic Contribution:} We construct sample-specific SMB factors ensuring theoretical consistency, revealing conditional size effects with 167\% better precision. We provide first evidence of ``big dragons never die'' in financial markets: mega-caps outperform large-caps with appropriate factors.
 
-\textbf{Practical Implications:} For institutional investors constrained to large-cap stocks, cap-weighted indexing may be optimal as it naturally overweights ``biggest dragons.'' Equal-weighting or small-cap tilts within large-cap portfolios may reduce returns by fighting digital economy dynamics where network effects and intangible assets create persistent advantages for mega-caps.
+\pagebreak[2]
+\textbf{Practical Implications:} For institutional investors constrained to large-cap stocks, cap-weighted indexing may be optimal as it overweights ``biggest dragons.'' Equal-weighting may reduce returns by fighting digital economy dynamics.
 
-\textbf{Critical Future Research:} Comprehensive analysis comparing small-cap, large-cap, and mega-cap stocks simultaneously is essential to test whether traditional size premium persists, confirm our mega-cap finding, and determine if returns follow an inverted U-shape across the full spectrum.
+\textbf{Future Research:} Comprehensive small-cap, large-cap, and mega-cap comparison is essential to test traditional size premium persistence and confirm nonlinear patterns.
 
-All results are fully reproducible using WRDS CRSP data, with local caching for verification. This ensures transparency and enables independent validation of our findings within their stated scope.
+All results are reproducible using WRDS CRSP data with local caching for verification.
 
-\clearpage
+\newpage
 \section*{Acknowledgments}
 
 I thank Kenneth French for making the Fama-French factor data publicly available. I also thank WRDS for providing access to CRSP data. All errors are my own.
